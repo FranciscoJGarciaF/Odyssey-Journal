@@ -11,7 +11,7 @@ A fecha de escritura de este documento [28 / 5 / 2024], el proyecto, cuyo nombre
 Tiene la funcionalidad básica de un editor de texto convencional, escribir texto, crear nuevos archivos de texto, abrir archivos ya existentes, guardar el archivo actual, guardar el archivo actual como
 uno nuevo, cortar, copiar, pegar el texto, y deshacer y rehacer las acciones (tanto a través de un atajo de teclado como a través de una opción en la interfaz).
 
-Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino-Provisional-/releases/tag/preAlpha
+Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/preAlpha
 
 Las funcionalidades previstas para la siguiente preAlpha pública (0.2.0) son:
 1. Mostrar información sobre el autor y contacto.
