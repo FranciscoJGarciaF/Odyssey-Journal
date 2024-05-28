@@ -11,7 +11,12 @@ A fecha de escritura de este documento [28 / 5 / 2024], el proyecto, cuyo nombre
 Tiene la funcionalidad básica de un editor de texto convencional, escribir texto, crear nuevos archivos de texto, abrir archivos ya existentes, guardar el archivo actual, guardar el archivo actual como
 uno nuevo, cortar, copiar, pegar el texto, y deshacer y rehacer las acciones (tanto a través de un atajo de teclado como a través de una opción en la interfaz).
 
-Y su principal limitación conocida es que por ahora solo puede ser ejecutado en Windows. (Solo ha sido probado en Windows 10, 64 Bits).
+Problemas conocidos:
+1. La caja de texto aún no se actualiza a los cambios en las dimensiones de la ventana del programa.
+2. En la barra de acciones hay botones que aún no son funcionales, siendo estos las opciones en la casilla "Ventana" y "Ayuda".
+3. Hay una interacción errónea al cancelar la pantalla de selección cuando se intenta abrir un archivo, pero no afecta ni rompe el funcionamiento del programa.
+
+Y su principal limitación conocida es que por ahora solo puede ser ejecutado en Windows. (Solo ha sido probado en Windows 10 x64).
 En el futuro me aseguraré de que pueda ser ejecutado en distribuciones de Linux.
 
 Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/preAlpha
