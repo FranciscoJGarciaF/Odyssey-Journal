@@ -1,14 +1,20 @@
 from tkinter import *
 from tkinter import filedialog
+from tkinter import font
+import sys
 import os
+import webbrowser
 
+
+if hasattr (sys, '_MEIPASS'):
+    os.chdir(sys._MEIPASS)
 
 root = Tk()
 
-titulo = "Sin Título - Proyecto Pepino Pre-Alpha 0.1.0"
-root.title(titulo)
 
-root.iconbitmap('ico.ico')
+root.title("Sin Título - Proyecto Pepino Pre-Alpha 0.2.0")
+
+root.iconbitmap("_internal/ico.ico")
 root.geometry('1200x680')
 
 global nombreAbierto
@@ -17,21 +23,18 @@ nombreAbierto = False
 global seleccion
 seleccion = False
 
-# Funciones
 
-# 1. Crear nuevo archivo
+# Funciones
 
 def nuevoArchivo():
     # Borrar el texto previamente escrito y actualizar el título y la barra de estado
     cajaTexto.delete("1.0", END)
-    titulo = "Sin Título - Proyecto Pepino Pre-Alpha 0.1.0"
-    root.title(titulo)
+    root.title("Sin Título - Proyecto Pepino Pre-Alpha 0.2.0")
     barraEstado.config(text="Nuevo Archivo        ")
 
     global nombreAbierto
     nombreAbierto = False
 
-# 1. Abrir archivo
 
 def abrirArchivo():
     # Borrar el texto previamente escrito
@@ -45,13 +48,13 @@ def abrirArchivo():
         global nombreAbierto
         nombreAbierto = archivoTexto
 
-    nombre = archivoTexto
-    barraEstado.config(text=f"{nombre}        ")
+        nombre = archivoTexto
+        barraEstado.config(text=f"{nombre}        ")
 
-    nombreLimpiar = nombre.rfind("/")
-    nombre = nombre[nombreLimpiar+1:-4]
-
-    root.title(f'{nombre} - Proyecto Pepino Pre-Alpha 0.1.0')
+        nombreLimpiar = nombre.rfind("/")
+        nombre = nombre[nombreLimpiar+1:-4]
+        titulo =f'{nombre} - Proyecto Pepino Pre-Alpha 0.2.0'
+        root.title(titulo)
 
     # Abrir archivo
 
@@ -61,8 +64,6 @@ def abrirArchivo():
     cajaTexto.insert(END, colocarTexto)
     archivoTexto.close()
 
-
-# 3. Guardar Como
 def guardarComo():
     archivoTexto = filedialog.asksaveasfilename(defaultextension=".*", initialdir= os.path.expanduser('~'), title = 'Guardar cómo...', filetypes= (("Archivo de Texto", "*.txt"), ("Archivo HTML", "*.html"), ("Archivo de Python", "*.py") ))
     if archivoTexto:
@@ -82,8 +83,6 @@ def guardarComo():
         archivoTexto.write(cajaTexto.get(1.0, END))
         archivoTexto.close()
 
-# 4. Guardar
-
 def guardar():
     global nombreAbierto
     if nombreAbierto:
@@ -95,10 +94,9 @@ def guardar():
     else:
         guardarComo()
 
-# 5. Copiar, Cortar y Pegar
-
 def cortar(e):
     global seleccion
+# Verificar si fue llamada por un atajo o por el botón y asignar al portapapeles
     if e:
         seleccion= root.clipboard_get()
         cajaTexto.delete('sel.first', 'sel.last')
@@ -114,7 +112,7 @@ def cortar(e):
 
 def copiar(e):
     global seleccion
-
+# Verificar si fue llamada por un atajo o por el botón y asignar al portapapeles
     if e:
         seleccion = root.clipboard_get()
 
@@ -124,10 +122,9 @@ def copiar(e):
             seleccion = cajaTexto.selection_get()
             root.clipboard_append(seleccion)
 
-
 def pegar(e):
     global seleccion
-
+# Verificar si fue llamada por un atajo o por el botón y asignar al portapapeles
     if e:
         seleccion = root.clipboard_get()
     else:
@@ -135,10 +132,106 @@ def pegar(e):
             posicion = cajaTexto.index(INSERT)
             cajaTexto.insert(posicion, seleccion)
 
+
+
+def llamarNavegador(url):
+    webbrowser.open_new(url)
+
+def autorInfo(e):
+    # Ventana de información de contacto y créditos al autor.
+
+    ventanaAutor = Tk()
+    ventanaAutor.title("Información y Contacto")
+    ventanaAutor.iconbitmap('ico.ico')
+
+    ventanaAutor.geometry('300x200')
+    ventanaAutor.minsize(300, 200)
+    ventanaAutor.maxsize(1280, 800)
+
+    infoAutor = Label(ventanaAutor, text="""
+    Autor: Francisco García\n
+    Correo: franciscojotagarciaefe@gmail.com\n
+    Repositorio:""")
+    infoAutor_Link = Label(ventanaAutor, text="github.com/FranciscoJGarciaF/Proyecto-Pepino", fg= 'blue', cursor="hand2")
+
+    infoAutor.pack()
+    infoAutor_Link.pack()
+    infoAutor_Link.bind("<Button-1>", lambda: llamarNavegador("github.com/FranciscoJGarciaF/Proyecto-Pepino"))
+    infoAutor_extra = Label(ventanaAutor, text="\n\n¡Gracias por usar!")
+    infoAutor_extra.pack()
+
+def maxOmin(estado):
+
+    global pantallaCompleta
+
+    if estado == 0:
+        root.wm_state("iconic")
+    else:
+        root.wm_state("zoomed")
+
+
+def fuente(e):
+    fuenteNegrita = font.Font(cajaTexto, cajaTexto.cget("font"))
+    fuenteNegrita.configure(weight="bold")
+
+    fuenteCursiva = font.Font(cajaTexto, cajaTexto.cget("font"))
+    fuenteCursiva.configure(slant="italic")
+
+    fuenteCursivaYNegrita = font.Font(cajaTexto, cajaTexto.cget("font"))
+    fuenteCursivaYNegrita.configure(weight= "bold", slant = "italic")
+
+
+    cajaTexto.tag_configure("negrita", font = fuenteNegrita)
+    cajaTexto.tag_configure("cursiva", font = fuenteCursiva)
+    cajaTexto.tag_configure("negritaYcursiva", font = fuenteCursivaYNegrita)
+
+
+    etiquetasActuales = cajaTexto.tag_names("sel.first")
+    
+    match e:
+        case 0:
+            if "negritaYcursiva" in etiquetasActuales:
+                cajaTexto.tag_remove("negritaYcursiva", "sel.first", "sel.last")
+                cajaTexto.tag_add("cursiva", "sel.first", "sel.last")
+                
+
+            elif "negrita" in etiquetasActuales:
+                cajaTexto.tag_remove("negrita", "sel.first", "sel.last")
+            elif "negrita" not in etiquetasActuales:
+                if "cursiva" in etiquetasActuales:
+                    cajaTexto.tag_remove("cursiva", "sel.first", "sel.last")
+                    cajaTexto.tag_add("negritaYcursiva", "sel.first", "sel.last")
+                else:
+                    cajaTexto.tag_add("negrita", "sel.first", "sel.last")
+
+
+        case 1:
+            if "negritaYcursiva" in etiquetasActuales:
+                cajaTexto.tag_remove("negritaYcursiva", "sel.first", "sel.last")
+                cajaTexto.tag_add("negrita", "sel.first", "sel.last")
+
+            elif "cursiva" in etiquetasActuales:
+                cajaTexto.tag_remove("cursiva", "sel.first", "sel.last")
+            elif "cursiva" not in etiquetasActuales:
+                if "negrita" in etiquetasActuales:
+                    cajaTexto.tag_remove("negrita", "sel.first", "sel.last")
+                    cajaTexto.tag_remove("cursiva", "sel.first", "sel.last")
+                    cajaTexto.tag_add("negritaYcursiva", "sel.first", "sel.last")
+                else:
+                    cajaTexto.tag_add("cursiva", "sel.first", "sel.last")           
+          
+
+# Ventana de herramientas
+
+ventanaHerramientas = Frame(root)
+ventanaHerramientas.pack(fill = Y, side = "left", anchor="nw")
+
+
 # Ventana principal para el texto
 
 ventanaPrincipal = Frame(root)
-ventanaPrincipal.pack(pady=5)
+ventanaPrincipal.pack(pady=5, side="top", fill="both", expand=True)
+
 
 # Barra de Scroll
 
@@ -150,8 +243,8 @@ barraScrollHorizontal.pack(side = BOTTOM, fill = X)
 
 # Caja de texto
 
-cajaTexto = Text(ventanaPrincipal, width = 97, height = 25, font=('Helvetica', 16), selectbackground="yellow", selectforeground='black', undo = True, yscrollcommand= barraScroll.set)
-cajaTexto.pack()
+cajaTexto = Text(ventanaPrincipal, width = 1, height = 1, font=('Helvetica', 16), selectbackground="yellow", selectforeground='black', undo = True, yscrollcommand= barraScroll.set)
+cajaTexto.pack(fill="both", expand = True)
 
 # Configurar la barra de scroll
 
@@ -186,30 +279,44 @@ menuAcciones_menuEditar.add_separator()
 menuAcciones_menuEditar.add_command(label = "Deshacer", command = cajaTexto.edit_undo, accelerator= "(Ctrl+Z)")
 menuAcciones_menuEditar.add_command(label = "Rehacer", command = cajaTexto.edit_redo, accelerator= "(Ctrl+Y)")
 
+# Botón de Ventana
+
+menuAcciones_menuVentana = Menu(menuAcciones, tearoff= False)
+menuAcciones.add_cascade(label="Ventana", menu= menuAcciones_menuVentana)
+menuAcciones_menuVentana.add_command(label = "Maximizar", command = lambda: maxOmin(1))
+menuAcciones_menuVentana.add_command(label = "Minimizar", command = lambda: maxOmin(0))
+
+
+# Botón de Ayuda
+
+menuAcciones_menuAyuda = Menu(menuAcciones, tearoff= False)
+menuAcciones.add_cascade(label="Ayuda", menu = menuAcciones_menuAyuda) 
+menuAcciones_menuAyuda.add_command(label="Créditos y Contacto", command = lambda: autorInfo(True), accelerator="F1")
+menuAcciones_menuAyuda.add_command(label="¿Cómo usar?")
+
+# Botones de la ventana de herramientas
+
+botonNegrita = Button(ventanaHerramientas, text="Negrita", command = lambda: fuente(0))
+botonNegrita.grid(row = 0, column = 0, sticky = N, padx = 5)
+botonCursiva = Button(ventanaHerramientas, text="Cursiva", command = lambda: fuente(1))
+botonCursiva.grid(row = 1, column = 0, padx = 5)
+
+
 # Barra de Estado
 
 barraEstado = Label(root, text="Listo        ", anchor = E)
 barraEstado.pack(fill=X, side = BOTTOM, ipady = 15)
 
 
-# Botón de Ventana
-
-menuAcciones_menuVentana = Menu(menuAcciones, tearoff= False)
-menuAcciones.add_cascade(label="Ventana", menu= menuAcciones_menuVentana)
-menuAcciones_menuVentana.add_command(label = "Maximizar")
-menuAcciones_menuVentana.add_command(label = "Minimizar")
-
-# Botón de Ayuda
-
-menuAcciones_menuAyuda = Menu(menuAcciones, tearoff= False)
-menuAcciones.add_cascade(label="Ayuda", menu = menuAcciones_menuAyuda) 
-menuAcciones_menuAyuda.add_command(label="Créditos y Contacto")
-menuAcciones_menuAyuda.add_command(label="¿Cómo usar?")
-
-# Editar atajos
+# Atajos
 
 root.bind('<Control-Key-x>', cortar)
 root.bind('<Control-Key-x>', copiar)
 root.bind('<Control-Key-x>', pegar)
+root.bind("<F1>", autorInfo)
+root.bind("<Control-Key-b>", lambda e: fuente(0))
+root.bind("<Alt-Key-i>", lambda e: fuente(1))
+
+print(os.getcwd())
 
 root.mainloop()
