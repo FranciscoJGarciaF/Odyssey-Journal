@@ -15,6 +15,7 @@ Problemas conocidos:
 
 1. Hay un botón que aún no ha recibido funcionalidad (¿Cómo usar?)
 2. Hacen falta más funcionalidades por añadir, especialmente al texto.
+3. No puede ser ejecutado en sistemas con arquitectura de 32 bits.
 
 Y su principal limitación conocida es que por ahora solo puede ser ejecutado en Windows. (Solo ha sido probado en Windows 10 x64).
 En el futuro me aseguraré de que pueda ser ejecutado en distribuciones de Linux.
