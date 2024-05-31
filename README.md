@@ -17,7 +17,7 @@ Problemas conocidos:
 2. Hacen falta más funcionalidades por añadir, especialmente al texto.
 3. No puede ser ejecutado en sistemas con arquitectura de 32 bits.
 
-Y su principal limitación conocida es que por ahora solo puede ser ejecutado en Windows. (Solo ha sido probado en Windows 10 x64).
+Y su principal limitación conocida es que por ahora solo puede ser ejecutado en Windows. (Solo ha sido probado en Windows 10 x64 y Windows 7 x86).
 En el futuro me aseguraré de que pueda ser ejecutado en distribuciones de Linux.
 
 Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/preAlphav2
