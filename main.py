@@ -14,7 +14,7 @@ root = Tk()
 
 root.title("Sin Título - Proyecto Pepino Pre-Alpha 0.2.0")
 
-root.iconbitmap("_internal/ico.ico")
+root.iconbitmap("ico.ico")
 root.geometry('1200x680')
 
 global nombreAbierto
