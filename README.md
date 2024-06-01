@@ -9,7 +9,7 @@ quieras mantener su información recopilada y actualizada.
 
 A fecha de escritura de este documento [30 / 5 / 2024], el proyecto, cuyo nombre clave es "Proyecto Pepino" por los momentos, se encuentra en su segunda preAlpha pública, la versión 0.2.0.
 Tiene la funcionalidad básica de un editor de texto convencional, escribir texto, crear nuevos archivos de texto, abrir archivos ya existentes, guardar el archivo actual, guardar el archivo actual como
-uno nuevo, cortar, copiar, pegar el texto, y deshacer y rehacer las acciones (tanto a través de un atajo de teclado como a través de una opción en la interfaz). Así como permite el uso de letras en negrita y en cursiva y posee funcionalidades de atajos de teclado.
+uno nuevo, cortar, copiar, pegar el texto, y deshacer y rehacer las acciones (tanto a través de un atajo de teclado como a través de una opción en la interfaz). Así como permite la personalización del texto con estilos, tipografías, fuentes y posee funcionalidades de atajos de teclado.
 
 Problemas conocidos:
 
@@ -20,9 +20,8 @@ Problemas conocidos:
 Y su principal limitación conocida es que por ahora solo puede ser ejecutado en Windows. (Solo ha sido probado en Windows 10 x64 y Windows 7 x86).
 En el futuro me aseguraré de que pueda ser ejecutado en distribuciones de Linux.
 
-Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/preAlphav2
+Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/preAlphav3
 
-Las funcionalidades previstas para la siguiente preAlpha pública (v0.2.x o bien directamente 0.3.0) son:
-1. Añadir cambio de color y tipografía del texto.
-2. Nuevos efectos para el texto.
-3. Agrupar estas opciones en una casilla con una pestaña independiente. 
+Las funcionalidades previstas para la siguiente preAlpha pública (v1.0.0) son:
+1. Primeras funcionalidades propias del proyecto: Descripción del Proyecto del Usuario y sus Actividades.
+2. Efecto de resaltar texto.
