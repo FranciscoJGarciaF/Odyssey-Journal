@@ -4,7 +4,7 @@ Soy Francisco García, estudiante del V Semestre de la carrera de Ingeniería de
 Este repositorio fue creado con la intención de mantener el registro y actualización de mi proyecto para la asignatura de Bases de Datos, de modo que se pueda guardar el histórico de versiones hasta la 
 versión final y su respectiva documentación.
 
-Mi proyecto, de nombre "Odyssey Journal" es un adminsitrador de proyectos basado en texto que te permite llevar un registro escrito de cualquier proyecto personal que quieras definir, y del cuál 
+Mi proyecto, cuyo anterior nombre provisional era "Proyecto Pepino" y que ahora lleva por nombre "Odyssey Journal" es un adminsitrador de proyectos basado en texto que te permite llevar un registro escrito de cualquier proyecto personal que quieras definir, y del cuál 
 quieras mantener su información recopilada y actualizada. 
 
 A fecha de escritura de este documento [16 / 6 / 2024], el proyecto se encuentra en su primera versión oficial, la versión 1.1.0.
