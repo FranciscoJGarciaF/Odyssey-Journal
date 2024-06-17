@@ -23,4 +23,11 @@ Problemas conocidos:
 
 Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/officialbuild
 
+![image](https://github.com/FranciscoJGarciaF/Proyecto-Pepino/assets/170999181/41602daf-35ec-4d2c-aaf7-02f3a02aeefe)
+
+![image](https://github.com/FranciscoJGarciaF/Proyecto-Pepino/assets/170999181/bac18db9-06da-4cbf-8367-48dc33eec7ed)
+
+
+
+
 En el futuro puede existir alguna actualización, pero no aseguro nada.
