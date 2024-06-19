@@ -23,9 +23,9 @@ Problemas conocidos:
 
 Puedes descargarla aquí: https://github.com/FranciscoJGarciaF/Proyecto-Pepino/releases/tag/officialbuild
 
-![image](https://github.com/FranciscoJGarciaF/Proyecto-Pepino/assets/170999181/41602daf-35ec-4d2c-aaf7-02f3a02aeefe)
+![image](https://github.com/FranciscoJGarciaF/Odyssey-Journal/assets/170999181/dcf20500-550a-4e4b-ae38-9cb1160892fc)
 
-![image](https://github.com/FranciscoJGarciaF/Proyecto-Pepino/assets/170999181/bac18db9-06da-4cbf-8367-48dc33eec7ed)
+![image](https://github.com/FranciscoJGarciaF/Odyssey-Journal/assets/170999181/f0510ce0-2241-4fe2-b6ca-4ed1b921d418)
 
 
 
